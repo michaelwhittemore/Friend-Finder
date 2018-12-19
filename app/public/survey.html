@@ -113,12 +113,16 @@
                 friend.photo = $("#photo").val().trim()
                 //grabs all the question answers
                 for (i = 1; i <= 10; i++) {
-                    console.log(i)
                     answerArray.push($("#q" + i).val())
                 }
                 friend.scores = answerArray
-
-                $.post("/api/friends", friend)
+                
+                //console.log(friend)
+                $.post("/api/friends", friend,function(data){
+                    console.log(data)
+                    alert(`Your best match is ${data.friend.name} \n
+                    You have a score difference of ${data.difference} `)
+                })
                 console.log(friend)
                 
 
