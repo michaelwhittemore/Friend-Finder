@@ -10,9 +10,7 @@ function setApiRoutes(app) {
         //bestMatch value and index are used the find the most comptaible friend
         let bestMatchValue=50;
         let bestMatchIndex;
-        console.log(friends)
         for (let i in friends){
-            console.log("index:"+i)
             let tempDifference = compareAnswers(newFriend.scores,friends[i].scores)
             //update the best match if the differnce is smaller than any before it
             if (tempDifference < bestMatchValue){
@@ -24,11 +22,7 @@ function setApiRoutes(app) {
             friend:friends[bestMatchIndex],
             difference:bestMatchValue
         }
-        console.log("index: "+bestMatchIndex)
-        console.log(returObject)
         res.json(returObject)
-
-
         friends.push(newFriend)
     })
 }
