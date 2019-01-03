@@ -1,6 +1,8 @@
 //takes in app as a variable and then routes
 //requires the data
-let friends = require("../data/friends")
+const startfriends = require("../data/friends")
+//creates a seperate array
+let friends=startfriends.slice() 
 function setApiRoutes(app) {
     app.get("/api/friends", function (req, res) {
         res.json(friends)
@@ -24,6 +26,11 @@ function setApiRoutes(app) {
         }
         res.json(returObject)
         friends.push(newFriend)
+    })
+    //reset function
+    app.post("/api/reset", function (req,res){
+        friends=startfriends.slice()
+        console.log(startfriends)
     })
 }
 //takes in two arrays of the same length and returns their differnce

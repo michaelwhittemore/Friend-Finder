@@ -16,6 +16,7 @@
     <div class="jumbotron">
         Survey
     </div>
+    
     <!--main survey form-->
     <form>
         Name: <br>
@@ -103,7 +104,12 @@
             <option value=5> 5 </option>
         </select> <br>
         Submit: <br>
-        <button type="submit" id="submit">Submit!</button>
+        <button type="submit" id="submit">Submit!</button> <br> <br>
+
+        <!-- reset button-->
+        <button id="reset"> Reset friends data to default</button> <br> <br>
+        <!-- Home -->
+        <h5> <a href="/"> Home </a></h5>
         <script type="text/javascript">
             $(document).on('click', '#submit', function (e) {
                 e.preventDefault();
@@ -124,8 +130,13 @@
                     You have a score difference of ${data.difference} `)
                 })
                 console.log(friend)
-                
-
+            })
+            //reset
+            $(document).on('click','#reset',function(e){
+                e.preventDefault();
+                $.post("/api/reset", function(data){
+                    alert("You have reset the data")
+                })
             })
         </script>
 

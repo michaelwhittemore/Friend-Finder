@@ -20,3 +20,7 @@ app.listen(PORT, function () {
 });
 
 
+//TODO 
+//1. Improve style
+//2. add a clear button for existing data, and then reset the data  -- DONE
+//3. add new questions so that it asks if you like certain languages
